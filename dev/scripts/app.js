@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import taskObjects from './taskObjects';
+import TaskObjects from './taskObjects.js';
 
 // PSEUDOCODE
 // Overview: create a 'done it' app to mark down the simple tasks that have been completed, with the goal of allowing users to keep track of what has/has not been done
@@ -23,7 +23,9 @@ class App extends React.Component {
     }
     render() {
         return (
-            <h1>Meep</h1>
+            <div>
+                <h1>Meep</h1>
+            </div>
         )
     }
 }
