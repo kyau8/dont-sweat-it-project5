@@ -1,6 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TaskObjects from './taskObjects.js';
+import TaskObjects from './taskObjects';
+
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyAQ3HLrQE7BMj_nmMUXNcgBEAYruHFzx-g",
+authDomain: "dont-sweat-it-todoapp.firebaseapp.com",
+databaseURL: "https://dont-sweat-it-todoapp.firebaseio.com",
+projectId: "dont-sweat-it-todoapp",
+storageBucket: "dont-sweat-it-todoapp.appspot.com",
+messagingSenderId: "461063263021"
+};
+firebase.initializeApp(config);
+
 
 // PSEUDOCODE
 // Overview: create a 'done it' app to mark down the simple tasks that have been completed, with the goal of allowing users to keep track of what has/has not been done
@@ -10,22 +22,43 @@ import TaskObjects from './taskObjects.js';
 // Users can select 'new day' to save data for a new day/week/month. The previous day/week/month's information will be available for access (still stored in Firebase).
 // Stretch goals: user authentication, and adding dates into the app so that the information automatically refreshes (use the date object, and add a 'created' property to the task object)
 
+// Move the to do objects into an array
+// Using the .map method, print the to do objects to the settings section.
 // Create an app component that prints ta
 class App extends React.Component {
     constructor(){
         super();
         this.state = {
             // Users will push the tasks of their choosing into these three arrays, to display those tasks on the page
-            dailyTasks: [],
-            weeklyTasks: [],
-            monthlyTasks: []
+            // dailyTasks: [],
+            // weeklyTasks: [],
+            // monthlyTasks: []
         }
     }
     render() {
         return (
             <div>
-                <h1>Meep</h1>
+                <h1>cows</h1>
+                <AddTask />
+                <TaskObjects />
             </div>
+        )
+    }
+}
+
+class AddTask extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            newTask: ''
+        }
+    }
+    render() {
+        return (
+            <form action="">
+                <input type="text" />
+                <button type="submit">Add Task</button>
+            </form>
         )
     }
 }
