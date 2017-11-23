@@ -6,14 +6,14 @@ class TaskObjects extends React.Component {
     constructor() {
         super();
         this.state = {
-            userTasks: []
+            // One empty task array of all the tasks, and three empty arrays that will hold the categoried user tasks
+            userTasks: [],
         }
     }
-    // Grab the task data from Firebase, and update the userTasks state
+    // Grab the task data from Firebase, evaluate what their taskCategory is, and update the userTasks state
     componentDidMount() {
         const dbRef = firebase.database().ref('userTasks');
         dbRef.on('value', (response) => {
-            // console.log(response.val());
             const newUserTasks = [];
             const taskList = response.val();
             // Make a new object and push key and the key value pairs into this object
@@ -38,8 +38,16 @@ class TaskObjects extends React.Component {
         return (
             <ul>
                 {this.state.userTasks.map((toDo) => {
-                    <li>{toDo.task}</li>
-                    console.log(toDo.task);
+                    return <li key={toDo.key}>{toDo.task}
+                        <form action="">    
+                            <label htmlFor='complete'>&#10004;</label>
+                            <input htmlFor='complete' value='complete' type="radio"/>
+                            <label htmlFor='notComplete'>&#10005;</label>
+                            <input htmlFor='notComplete' value='notComplete' type="radio" />
+                            <label htmlFor='forgot'>???</label>
+                            <input htmlFor='forgot' value='forgot' type="radio" />
+                        </form>
+                    </li>
                 })}
             </ul>
         )
