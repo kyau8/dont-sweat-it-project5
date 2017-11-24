@@ -1,4 +1,5 @@
 import React from 'react';
+import RemoveTask from './removeTask';
 
 
 // Create a list of task objects - these are the tasks the users can push into their daily, weekly, or monthly arrays

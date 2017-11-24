@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TaskObjects from './taskObjects';
 import AddTask from './addTask';
-import RemoveTask from './removeTask';
+// import RemoveTask from './removeTask';
 
 // Initialize Firebase
 var config = {

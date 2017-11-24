@@ -46,7 +46,7 @@ class AddTask extends React.Component {
     render() {
         return (
             <form action="" onSubmit={this.handleSubmit}>
-                <input type="text" onChange={this.handleChange} className="inputBox"/>
+                <input type="text" onChange={this.handleChange} className="inputBox" value={this.state.newTask.task} required="true"/>
                 <TaskForm selectChange={this.selectChange} />
                 <button type="submit">Add Task</button>
             </form>
