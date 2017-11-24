@@ -12,6 +12,7 @@ class TaskObjects extends React.Component {
             weeklyUserTasks: [],
             monthlyUserTasks: []
         }
+        this.hideTask = this.hideTask.bind(this);
     }
     // Grab the task data from Firebase, evaluate what their taskCategory is, and update the userTasks state
     componentDidMount() {
@@ -50,28 +51,36 @@ class TaskObjects extends React.Component {
             });
         });
     }
+    // Write a method to hide the tasks if the radio button is selected
+    hideTask(index) {
+        const removeTask = this.state.dailyUserTasks[index].key;
+        // const keyValue = removeTask.
+        const thing = document.getElementById(removeTask);
+        thing.className += 'displayNone';
+        console.log(thing);
+    }
     // Print the tasks onto the page
     render() {
         return (
             <section>
                 <ul>Daily Tasks
-                    {this.state.dailyUserTasks.map((dailyDo) => {
-                        return <li key={dailyDo.key}>{dailyDo.task}
-                        <TaskCompletionLevel />
+                    {this.state.dailyUserTasks.map((dailyDo,i) => {
+                        return <li key={dailyDo.key} id={dailyDo.key} >{dailyDo.task}
+                            <TaskCompletionLevel hideTask={this.hideTask} dailyDoIndex={i} />
                         </li>
                     })}
                 </ul>
                 <ul>Weekly Tasks
                     {this.state.weeklyUserTasks.map((weeklyDo) => {
                         return <li key={weeklyDo.key}>{weeklyDo.task}
-                            <TaskCompletionLevel />
+                            <TaskCompletionLevel hideTask={this.hideTask} />
                         </li>
                     })}
                 </ul>
                 <ul>Monthly Tasks
                     {this.state.monthlyUserTasks.map((monthlyDo) => {
                         return <li key={monthlyDo.key}>{monthlyDo.task}
-                            <TaskCompletionLevel />
+                            <TaskCompletionLevel hideTask={this.hideTask} />
                         </li>
                     })}
                 </ul>
@@ -80,7 +89,7 @@ class TaskObjects extends React.Component {
     }
 }
 
-const TaskCompletionLevel = () => {
+const TaskCompletionLevel = (props) => {
     return (
         <form action="">
             <label htmlFor='complete' name='taskStatus'>&#10004;</label>
@@ -89,6 +98,10 @@ const TaskCompletionLevel = () => {
             <input htmlFor='notComplete' value='notComplete' type="radio" name='taskStatus' />
             <label htmlFor='forgot' name='taskStatus'>???</label>
             <input htmlFor='forgot' value='forgot' type="radio" name='taskStatus' />
+            {/* <button className="deleteTask" onClick={props.hideTask}>Delete</button> */}
+            {/* <RemoveTask /> */}
+            <label htmlFor='delete' name='taskStatus' className='deleteButton'>Delete</label>
+            <input htmlFor='delete' value='delete' type="radio" name='taskStatus' onClick={() => props.hideTask(props.dailyDoIndex)} className='deleteButton' />
         </form>
     )
 }

@@ -64,5 +64,8 @@ const TaskForm = (props) => {
     )
 }
 
+// add displayNone class to button
+// var addClass = document.getElementById('geoButton');
+// addClass.className += 'displayNone';
 
 export default AddTask;
