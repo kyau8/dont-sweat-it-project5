@@ -1,17 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TaskObjects from './taskObjects';
+import AddTask from './addTask';
 
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyAQ3HLrQE7BMj_nmMUXNcgBEAYruHFzx-g",
-authDomain: "dont-sweat-it-todoapp.firebaseapp.com",
-databaseURL: "https://dont-sweat-it-todoapp.firebaseio.com",
-projectId: "dont-sweat-it-todoapp",
-storageBucket: "dont-sweat-it-todoapp.appspot.com",
-messagingSenderId: "461063263021"
+    authDomain: "dont-sweat-it-todoapp.firebaseapp.com",
+    databaseURL: "https://dont-sweat-it-todoapp.firebaseio.com",
+    projectId: "dont-sweat-it-todoapp",
+    storageBucket: "dont-sweat-it-todoapp.appspot.com",
+    messagingSenderId: "461063263021"
 };
 firebase.initializeApp(config);
+
 
 
 // PSEUDOCODE
@@ -29,10 +31,6 @@ class App extends React.Component {
     constructor(){
         super();
         this.state = {
-            // Users will push the tasks of their choosing into these three arrays, to display those tasks on the page
-            // dailyTasks: [],
-            // weeklyTasks: [],
-            // monthlyTasks: []
         }
     }
     render() {
@@ -42,23 +40,6 @@ class App extends React.Component {
                 <AddTask />
                 <TaskObjects />
             </div>
-        )
-    }
-}
-
-class AddTask extends React.Component {
-    constructor(){
-        super();
-        this.state = {
-            newTask: ''
-        }
-    }
-    render() {
-        return (
-            <form action="">
-                <input type="text" />
-                <button type="submit">Add Task</button>
-            </form>
         )
     }
 }

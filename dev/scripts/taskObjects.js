@@ -44,21 +44,37 @@ class TaskObjects extends React.Component {
             }
             this.setState({
                 dailyUserTasks: newDailyTasks,
-                dailyWeeklyTasks: newWeeklyTasks,
-                dailyMonthlyTasks: newMonthlyTasks
+                weeklyUserTasks: newWeeklyTasks,
+                monthlyUserTasks: newMonthlyTasks
             });
         });
     }
     // Print the tasks onto the page
     render() {
         return (
-            <ul>Daily Tasks
-                {this.state.dailyUserTasks.map((dailyDo) => {
-                    return <li key={dailyDo.key}>{dailyDo.task}
-                    <TaskCompletionLevel />
-                    </li>
-                })}
-            </ul>
+            <section>
+                <ul>Daily Tasks
+                    {this.state.dailyUserTasks.map((dailyDo) => {
+                        return <li key={dailyDo.key}>{dailyDo.task}
+                        <TaskCompletionLevel />
+                        </li>
+                    })}
+                </ul>
+                <ul>Weekly Tasks
+                    {this.state.weeklyUserTasks.map((weeklyDo) => {
+                        return <li key={weeklyDo.key}>{weeklyDo.task}
+                            <TaskCompletionLevel />
+                        </li>
+                    })}
+                </ul>
+                <ul>Monthly Tasks
+                    {this.state.monthlyUserTasks.map((monthlyDo) => {
+                        return <li key={monthlyDo.key}>{monthlyDo.task}
+                            <TaskCompletionLevel />
+                        </li>
+                    })}
+                </ul>
+            </section>
         )
     }
 }
@@ -66,12 +82,12 @@ class TaskObjects extends React.Component {
 const TaskCompletionLevel = () => {
     return (
         <form action="">
-            <label htmlFor='complete'>&#10004;</label>
-            <input htmlFor='complete' value='complete' type="radio" />
-            <label htmlFor='notComplete'>&#10005;</label>
-            <input htmlFor='notComplete' value='notComplete' type="radio" />
-            <label htmlFor='forgot'>???</label>
-            <input htmlFor='forgot' value='forgot' type="radio" />
+            <label htmlFor='complete' name='taskStatus'>&#10004;</label>
+            <input htmlFor='complete' value='complete' type="radio" name='taskStatus' />
+            <label htmlFor='notComplete' name='taskStatus'>&#10005;</label>
+            <input htmlFor='notComplete' value='notComplete' type="radio" name='taskStatus' />
+            <label htmlFor='forgot' name='taskStatus'>???</label>
+            <input htmlFor='forgot' value='forgot' type="radio" name='taskStatus' />
         </form>
     )
 }
