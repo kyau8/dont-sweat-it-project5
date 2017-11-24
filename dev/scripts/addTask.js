@@ -16,7 +16,7 @@ class AddTask extends React.Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.selectChange = this.selectChange.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleChange(e){
         let updatedTask1 = Object.assign({}, this.state.newTask);
@@ -37,9 +37,11 @@ class AddTask extends React.Component {
         const newTaskData = firebase.database().ref('userTasks');
         const newInfo = this.state.newTask;
         newTaskData.push(newInfo);
-        // this.setState({
-           
-        // })
+        let updateInputTask = Object.assign({},this.state.newTask);
+        updateInputTask.task = ''
+        this.setState({
+            newTask:updateInputTask
+        })
     }
     render() {
         return (
