@@ -13,7 +13,8 @@ class TaskObjects extends React.Component {
             monthlyUserTasks: [],
             taskStatus: ''
         }
-        this.completeDailyTask = this.completeDailyTask.bind(this);
+        this.completeTask = this.completeTask.bind(this);
+        this.updateDB = this.updateDB.bind(this);
         this.deleteDailyTask = this.deleteDailyTask.bind(this);
         this.deleteWeeklyTask = this.deleteWeeklyTask.bind(this);
         this.deleteMonthlyTask = this.deleteMonthlyTask.bind(this);
@@ -56,21 +57,26 @@ class TaskObjects extends React.Component {
         });
     }
     // Write a method to change the taskStatus to complete if the complete button is selected
-    completeDailyTask(index) {
-        const dailyCompleteTaskKey = this.state.dailyUserTasks[index].key;
-        // const
-        // loop through the array and select the required object using your key. Set the state to the new state, and push it to firebase.
-        // Make an updated object and replace that object in firebase; .set to override it
-        console.log(dailyUserTasks);
-        // for (let items in dailyUserTasks){
-        // }
-        // const newTaskStatus = dailyCompleteTaskKey.taskStatus;
-
-        // const finishTask = this.state.dailyUserTasks[index].key;
-        // // const keyValue = removeTask.
-        // const markComplete = document.getElementById(finishTask);
-        // markComplete.className += 'completeText';
-        // console.log(newTaskStatus);
+    updateDB(task) {
+        // Copied the daily user task array
+        // Copied the key for the selected element
+        const completedTaskKey = task.key;
+        // Updated the task status property in that selected object
+        task.taskStatus = 'completed';
+        // Update that specific object in firebase
+        const dbRefComplete = firebase.database().ref(`userTasks/${completedTaskKey}/`);
+        dbRefComplete.update(task);
+    }
+    getClassName(task) {
+        if (task.taskStatus === 'completed') {
+            return 'completedClass';
+        }
+            else {
+                return 'neutral'
+            }
+    }
+    completeTask(task) {
+        this.updateDB(task);
     }
     // Write a method to delete the tasks if the delete button is selected
     deleteDailyTask(index) {
@@ -91,26 +97,28 @@ class TaskObjects extends React.Component {
     }
     // Print the tasks onto the page
     render() {
+        console.log('render')
         return (
-            <section>
+            <section className="taskLists">
                 <ul>Daily Tasks
                     {this.state.dailyUserTasks.map((dailyDo,i) => {
-                        return <li key={dailyDo.key} id={dailyDo.key} >{dailyDo.task}
-                            <DailyTaskCompletion completeDailyTask={this.completeDailyTask} deleteDailyTask={this.deleteDailyTask} dailyDoIndex={i} />
+                        return <li key={dailyDo.key} id={dailyDo.key} className={this.getClassName(dailyDo)}>
+                        {dailyDo.task}
+                            <DailyTaskCompletion completeTask={this.completeTask} deleteDailyTask={this.deleteDailyTask} task={dailyDo} />
                         </li>
                     })}
                 </ul>
                 <ul>Weekly Tasks
                     {this.state.weeklyUserTasks.map((weeklyDo,i) => {
-                        return <li key={weeklyDo.key}>{weeklyDo.task}
-                            <WeeklyTaskCompletion deleteWeeklyTask={this.deleteWeeklyTask} weeklyDoIndex={i} />
+                        return <li key={weeklyDo.key} className={this.getClassName(weeklyDo)}>{weeklyDo.task} 
+                            <WeeklyTaskCompletion completeTask={this.completeTask} deleteWeeklyTask={this.deleteWeeklyTask} task={weeklyDo} />
                         </li>
                     })}
                 </ul>
                 <ul>Monthly Tasks
                     {this.state.monthlyUserTasks.map((monthlyDo,i) => {
-                        return <li key={monthlyDo.key}>{monthlyDo.task}
-                            <MonthlyTaskCompletion deleteMonthlyTask={this.deleteMonthlyTask} monthlyDoIndex={i} />
+                        return <li key={monthlyDo.key} className={this.getClassName(monthlyDo)}>{monthlyDo.task}
+                            <MonthlyTaskCompletion completeTask={this.completeTask} deleteMonthlyTask={this.deleteMonthlyTask} task={monthlyDo} />
                         </li>
                     })}
                 </ul>
@@ -123,7 +131,7 @@ const DailyTaskCompletion = (props) => {
     return (
         <form action="">
             <label htmlFor='complete' name='taskStatus'>&#10004;</label>
-            <input htmlFor='complete' value='complete' type="radio" name='taskStatus' onClick={() => props.completeDailyTask(props.dailyDoIndex)} />
+            <input htmlFor='complete' value='complete' type="radio" name='taskStatus' onClick={() => props.completeTask(props.task)} />
             <label htmlFor='notComplete' name='taskStatus'>&#10005;</label>
             <input htmlFor='notComplete' value='notComplete' type="radio" name='taskStatus' />
             <label htmlFor='forgot' name='taskStatus'>???</label>
@@ -138,7 +146,7 @@ const WeeklyTaskCompletion = (props) => {
     return (
         <form action="">
             <label htmlFor='complete' name='taskStatus'>&#10004;</label>
-            <input htmlFor='complete' value='complete' type="radio" name='taskStatus' onClick={() => props.completeTask(props.dailyDoIndex)} />
+            <input htmlFor='complete' value='complete' type="radio" name='taskStatus' onClick={() => props.completeTask(props.task)} />
             <label htmlFor='notComplete' name='taskStatus'>&#10005;</label>
             <input htmlFor='notComplete' value='notComplete' type="radio" name='taskStatus' />
             <label htmlFor='forgot' name='taskStatus'>???</label>
@@ -153,7 +161,7 @@ const MonthlyTaskCompletion = (props) => {
     return (
         <form action="">
             <label htmlFor='complete' name='taskStatus'>&#10004;</label>
-            <input htmlFor='complete' value='complete' type="radio" name='taskStatus' onClick={() => props.completeTask(props.dailyDoIndex)} />
+            <input htmlFor='complete' value='complete' type="radio" name='taskStatus' onClick={() => props.completeTask(props.task)} />
             <label htmlFor='notComplete' name='taskStatus'>&#10005;</label>
             <input htmlFor='notComplete' value='notComplete' type="radio" name='taskStatus' />
             <label htmlFor='forgot' name='taskStatus'>???</label>

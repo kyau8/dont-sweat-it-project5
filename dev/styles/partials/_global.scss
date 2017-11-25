@@ -1,3 +1,9 @@
-.completeText {
-    color: gray;
+.completedClass {
+    color: red;
+}
+
+.taskLists {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
