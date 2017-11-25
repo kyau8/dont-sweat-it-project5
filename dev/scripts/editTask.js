@@ -1,6 +1,6 @@
 // import React from 'react';
 
-// class RemoveTask extends React.Component {
+// class EditTask extends React.Component {
 //     constructor(){
 //         super();
 //         this.state = {
@@ -13,4 +13,4 @@
 //     }
 // }
 
-// export default RemoveTask;
+// export default EditTask;
