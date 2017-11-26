@@ -1,31 +1,10 @@
+/* GLOBAL STYLES */
 $primaryFont: "Libre Franklin", sans-serif;
 $secondaryFont: "Muli", sans serif;
 $primaryColor: rgb(127, 246, 255);
+$secondaryColor: darkcyan;
 
 
 body {
     font-size: 62.5%;
-}
-
-li {
-    font-size: 2.0rem;
-}
-
-
-.completedClass {
-    color: red;
-}
-
-.notCompleteClass {
-    color: blue;
-}
-
-.forgottenClass {
-    color: pink;
-}
-
-.taskLists {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 }

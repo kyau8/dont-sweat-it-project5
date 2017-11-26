@@ -1,0 +1,52 @@
+/* LIST SECTION STYLES */
+.taskLists {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.list {
+    border: 1px solid lime;
+    width: 33.3%;
+}
+
+
+.fa {
+    font-size: 2.8rem;
+    // width: 60px;
+    border: 2px dotted lightslategray;
+    border-radius: 10px;
+    padding: 6px;
+    // background: grey;
+}
+
+li {
+    color: $secondaryColor;
+    font-size: 1.0rem;
+    list-style-type: none;
+}
+
+input {
+    visibility: hidden;
+}
+
+form .fa {
+    font-size: 1.4rem;
+    border: none;
+    padding: 0;
+}
+
+
+.completedClass {
+    color: red;
+    // background: blue;
+}
+
+.notCompleteClass {
+    color: blue;
+}
+
+.forgottenClass {
+    color: pink;
+}
+

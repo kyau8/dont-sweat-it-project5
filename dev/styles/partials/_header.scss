@@ -16,6 +16,11 @@ h1 {
 
 }
 
+.fa-tint {
+    color: white;
+    font-size: 2.5rem;
+}
+
 .date {
     font-family: $secondaryFont;
     font-weight: bold;
@@ -25,3 +30,7 @@ h1 {
     color: white;
     padding: 10px;
 }
+
+#newTaskInput {
+    visibility: visible;
+} 
