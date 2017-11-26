@@ -1,0 +1,27 @@
+header {
+    background: $primaryColor;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+h1 {
+    font-family: $primaryFont;
+    color: white;
+    text-transform: lowercase;
+    letter-spacing: 2px;
+    font-size: 2.5rem;
+    padding: 25px 10px;
+    margin: 0;
+
+}
+
+.date {
+    font-family: $secondaryFont;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 3px solid white;
+    font-size: 1.6rem;
+    color: white;
+    padding: 10px;
+}

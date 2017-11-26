@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TaskObjects from './taskObjects';
 import AddTask from './addTask';
+import moment from 'moment';
+import FontAwesome from 'react-fontawesome';
+
 // import RemoveTask from './removeTask';
 
 // Initialize Firebase
@@ -35,10 +38,14 @@ class App extends React.Component {
         }
     }
     render() {
+        console.log(moment());
         return (
             <div>
-                <h1>cows</h1>
-                <AddTask />
+                <header>
+                    <h1>Don't Sweat It <i className="fa fa-tint"></i></h1>
+                    <p className="date">{moment().format('MMM D YYYY')}</p>
+                    <AddTask />
+                </header>
                 <TaskObjects />
             </div>
         )

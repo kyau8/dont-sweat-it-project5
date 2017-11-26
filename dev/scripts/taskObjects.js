@@ -19,6 +19,7 @@ class TaskObjects extends React.Component {
         this.updateDB = this.updateDB.bind(this);
         this.deleteTask = this.deleteTask.bind(this);
         this.refreshList = this.refreshList.bind(this);
+        this.renderTask = this.renderTask.bind(this);
     }
     // Grab the task data from Firebase, evaluate what their taskCategory is, and update the userTasks state
     componentDidMount() {
@@ -37,7 +38,8 @@ class TaskObjects extends React.Component {
                     // display: taskList[tasks].display,
                     task: taskList[tasks].task,
                     taskCategory: taskList[tasks].taskCategory,
-                    taskStatus: taskList[tasks].taskStatus
+                    taskStatus: taskList[tasks].taskStatus,
+                    iconType: taskList[tasks].iconType
                 };
                 newUserTasks.push(newObject);
                 newDailyTasks = newUserTasks.filter(function(dailyTask) {
@@ -100,6 +102,12 @@ class TaskObjects extends React.Component {
             this.updateDB(tasks, 'default');
         }
     }
+    renderTask(task) {
+        return <li key={task.key} id={task.key} className={this.getClassName(task)}>
+            <i className={task.iconType}></i>{task.task}
+            <TaskCompletion completeTask={this.completeTask} notCompleteTask={this.notCompleteTask} forgottenTask={this.forgottenTask} deleteTask={this.deleteTask} task={task} />
+        </li>
+    }
     // Print the tasks onto the page
     render() {
         console.log('render')
@@ -108,31 +116,28 @@ class TaskObjects extends React.Component {
                 <div>
                     <button onClick={() => this.refreshList(this.state.dailyUserTasks)}>New Day</button>
                     <ul>Daily Tasks
-                        {this.state.dailyUserTasks.map((dailyDo,i) => {
-                            return <li key={dailyDo.key} id={dailyDo.key} className={this.getClassName(dailyDo)}>
-                            {dailyDo.task}
-                                <TaskCompletion completeTask={this.completeTask} notCompleteTask={this.notCompleteTask} forgottenTask={this.forgottenTask} deleteTask={this.deleteTask} task={dailyDo} />
-                            </li>
+                        {this.state.dailyUserTasks.map((task) => {
+                            return this.renderTask(task)
+                            // return <li key={dailyDo.key} id={dailyDo.key} className={this.getClassName(dailyDo)}>
+                            // <i className={dailyDo.iconType}></i>{dailyDo.task}
+                            //     <TaskCompletion completeTask={this.completeTask} notCompleteTask={this.notCompleteTask} forgottenTask={this.forgottenTask} deleteTask={this.deleteTask} task={dailyDo} />
+                            // </li>
                         })}
                     </ul>
                 </div>
                 <div>
                     <button onClick={() => this.refreshList(this.state.weeklyUserTasks)}>New Week</button>
                     <ul>Weekly Tasks
-                        {this.state.weeklyUserTasks.map((weeklyDo,i) => {
-                            return <li key={weeklyDo.key} className={this.getClassName(weeklyDo)}>{weeklyDo.task} 
-                                <TaskCompletion completeTask={this.completeTask} notCompleteTask={this.notCompleteTask} forgottenTask={this.forgottenTask} deleteTask={this.deleteTask} task={weeklyDo} />
-                            </li>
+                        {this.state.weeklyUserTasks.map((task) => {
+                            return this.renderTask(task);
                         })}
                     </ul>
                 </div>
                 <div>
                     <button onClick={() => this.refreshList(this.state.monthlyUserTasks)}>New Month</button>
                     <ul>Monthly Tasks
-                        {this.state.monthlyUserTasks.map((monthlyDo,i) => {
-                            return <li key={monthlyDo.key} className={this.getClassName(monthlyDo)}>{monthlyDo.task}
-                                <TaskCompletion completeTask={this.completeTask} notCompleteTask={this.notCompleteTask} forgottenTask={this.forgottenTask} deleteTask={this.deleteTask} task={monthlyDo} />
-                            </li>
+                        {this.state.monthlyUserTasks.map((task) => {
+                            return this.renderTask(task);
                         })}
                     </ul>
                 </div>

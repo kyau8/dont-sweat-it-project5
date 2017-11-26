@@ -11,7 +11,8 @@ class AddTask extends React.Component {
                 display: true,
                 task: '',
                 taskCategory: 'daily',
-                taskStatus: 'default'
+                taskStatus: 'default',
+                iconType: 'fa fa-leaf'
             }
         }
         this.handleChange = this.handleChange.bind(this);

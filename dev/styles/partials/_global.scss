@@ -1,3 +1,17 @@
+$primaryFont: "Libre Franklin", sans-serif;
+$secondaryFont: "Muli", sans serif;
+$primaryColor: rgb(127, 246, 255);
+
+
+body {
+    font-size: 62.5%;
+}
+
+li {
+    font-size: 2.0rem;
+}
+
+
 .completedClass {
     color: red;
 }

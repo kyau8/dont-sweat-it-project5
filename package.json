@@ -27,6 +27,9 @@
   },
   "dependencies": {
     "firebase": "^4.6.2",
-    "node-sass": "^4.7.1"
+    "font-awesome": "^4.7.0",
+    "moment": "^2.19.2",
+    "node-sass": "^4.7.1",
+    "react-fontawesome": "^1.6.1"
   }
 }
