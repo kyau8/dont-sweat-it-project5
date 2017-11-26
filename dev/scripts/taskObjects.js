@@ -104,7 +104,9 @@ class TaskObjects extends React.Component {
     }
     renderTask(task) {
         return <li key={task.key} id={task.key} className={this.getClassName(task)}>
-            <i className={task.iconType} ></i><br/>{task.task}
+            <div className="taskItems">
+                <i className={task.iconType} ></i><p>{task.task}</p>
+            </div>
             <TaskCompletion completeTask={this.completeTask} notCompleteTask={this.notCompleteTask} forgottenTask={this.forgottenTask} deleteTask={this.deleteTask} task={task} />
         </li>
     }
@@ -114,8 +116,9 @@ class TaskObjects extends React.Component {
         return (
             <section className="taskLists">
                 <div className="dailyList list">
-                    <button onClick={() => this.refreshList(this.state.dailyUserTasks)}>New Day</button>
-                    <ul>Daily Tasks
+                    <h2>Daily Tasks</h2>
+                    <button className="newListButton" onClick={() => this.refreshList(this.state.dailyUserTasks)}>'It's a <span>new</span> day'</button>
+                    <ul>
                         {this.state.dailyUserTasks.map((task) => {
                             return this.renderTask(task)
                             // return <li key={dailyDo.key} id={dailyDo.key} className={this.getClassName(dailyDo)}>
@@ -126,16 +129,18 @@ class TaskObjects extends React.Component {
                     </ul>
                 </div>
                 <div className="weeklyList list">
-                    <button onClick={() => this.refreshList(this.state.weeklyUserTasks)}>New Week</button>
-                    <ul>Weekly Tasks
+                    <h2>Weekly Tasks</h2>
+                    <button className="newListButton" onClick={() => this.refreshList(this.state.weeklyUserTasks)}>'It's a new week'</button>
+                    <ul>
                         {this.state.weeklyUserTasks.map((task) => {
                             return this.renderTask(task);
                         })}
                     </ul>
                 </div>
                 <div className="monthlyList list">
-                    <button onClick={() => this.refreshList(this.state.monthlyUserTasks)}>New Month</button>
-                    <ul>Monthly Tasks
+                    <h2>Monthly Tasks</h2>
+                    <button className="newListButton" onClick={() => this.refreshList(this.state.monthlyUserTasks)}>'It's a new month'</button>
+                    <ul>
                         {this.state.monthlyUserTasks.map((task) => {
                             return this.renderTask(task);
                         })}
@@ -148,15 +153,23 @@ class TaskObjects extends React.Component {
 
 const TaskCompletion = (props) => {
     return (
-        <form action="">
-            <label htmlFor={`complete-${props.task.key}`} name='taskStatus'><i className="fa fa-star"></i></label>
-            <input htmlFor='complete' id={`complete-${props.task.key}`} value='complete' type="radio" name='taskStatus' onClick={() => props.completeTask(props.task)} />
-            <label htmlFor={`notComplete-${props.task.key}`} name='taskStatus'><i className="fa fa-star-o"></i></label>
-            <input htmlFor='notComplete' value='notComplete' id={`notComplete-${props.task.key}`} type="radio" name='taskStatus' onClick={() => props.notCompleteTask(props.task)} />
-            <label htmlFor={`forgot-${props.task.key}`} name='taskStatus'><i className="fa fa-star-half-full"></i></label>
-            <input htmlFor='forgot' value='forgot' id={`forgot-${props.task.key}`} type="radio" name='taskStatus' onClick={() => props.forgottenTask(props.task)} />
-            <label htmlFor={`delete-${props.task.key}`} name='taskStatus' className='deleteButton'><i className="fa fa-times-circle-o"></i></label>
-            <input htmlFor='delete' id={`delete-${props.task.key}`} value='delete' type="radio" name='taskStatus' className='deleteButton' onClick={() => props.deleteTask(props.task)} />
+        <form className="taskStatusForm" action="">
+            <div>
+                <label htmlFor={`complete-${props.task.key}`} name='taskStatus'><i className="fa fa-star"></i></label>
+                <input htmlFor='complete' id={`complete-${props.task.key}`} value='complete' type="radio" name='taskStatus' onClick={() => props.completeTask(props.task)} />
+            </div>
+            <div>
+                <label htmlFor={`notComplete-${props.task.key}`} name='taskStatus'><i className="fa fa-star-o"></i></label>
+                <input htmlFor='notComplete' value='notComplete' id={`notComplete-${props.task.key}`} type="radio" name='taskStatus' onClick={() => props.notCompleteTask(props.task)} />
+            </div>
+            <div>
+                <label htmlFor={`forgot-${props.task.key}`} name='taskStatus'><i className="fa fa-star-half-full"></i></label>
+                <input htmlFor='forgot' value='forgot' id={`forgot-${props.task.key}`} type="radio" name='taskStatus' onClick={() => props.forgottenTask(props.task)} />
+            </div>
+            <div>
+                <label htmlFor={`delete-${props.task.key}`} name='taskStatus' className='deleteButton'><i className="fa fa-times-circle-o"></i></label>
+                <input htmlFor='delete' id={`delete-${props.task.key}`} value='delete' type="radio" name='taskStatus' className='deleteButton' onClick={() => props.deleteTask(props.task)} />
+            </div>
         </form>
     )
 }

@@ -1,4 +1,33 @@
 /* LIST SECTION STYLES */
+h2 {
+    font-family: $secondaryFont;
+    font-size: 1.6rem;
+    text-transform: lowercase;
+    text-align: center;
+    margin: 30px 0 0 0;
+
+}
+
+.newListButton {
+    display: block;
+    margin: 15px auto;
+    font-size: 0.8rem;
+    background: rgb(20, 140, 184);
+    border-radius: 5px;
+    color: white;
+    text-transform: lowercase;
+    border: none;
+    padding: 5px 20px;
+    font-style: italic;
+    // text-align: center;
+}
+
+.newListButton:hover {
+    background: $secondaryColor;
+    color: white;
+}
+
+
 .taskLists {
     display: flex;
     flex-direction: row;
@@ -12,18 +41,34 @@
 
 
 .fa {
-    font-size: 2.8rem;
+    font-size: 1.8rem;
     // width: 60px;
-    border: 2px dotted lightslategray;
+    // border: 2px solid lightslategray;
     border-radius: 10px;
     padding: 6px;
+    margin: 0 10px;
     // background: grey;
 }
 
+ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap:wrap;
+}
+
 li {
-    color: $secondaryColor;
+    color: white;
     font-size: 1.0rem;
     list-style-type: none;
+    width: 45%;
+    border: 1px solid red;
+    background: rgb(21, 150, 150);
+    // height: 80px;
+    margin: 5px 0;
 }
 
 input {
@@ -34,12 +79,20 @@ form .fa {
     font-size: 1.4rem;
     border: none;
     padding: 0;
+    margin: 0;
+}
+
+.taskStatusForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 
 .completedClass {
-    color: red;
-    // background: blue;
+    // color: red;
+    background: blue;
 }
 
 .notCompleteClass {
