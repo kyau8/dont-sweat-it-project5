@@ -46,10 +46,14 @@ class AddTask extends React.Component {
     }
     render() {
         return (
-            <form action="" onSubmit={this.handleSubmit}>
-                <input type="text" onChange={this.handleChange} className="inputBox" value={this.state.newTask.task} required="true" id="newTaskInput"/>
-                <TaskForm selectChange={this.selectChange} />
-                <button type="submit">Add Task</button>
+            <form action="" className="addTaskForm" onSubmit={this.handleSubmit}>
+                <div className="fillTaskForm">
+                    <input type="text" onChange={this.handleChange} className="inputBox" value={this.state.newTask.task} required="true" />
+                    <TaskForm selectChange={this.selectChange} />
+                </div>
+                <div className="buttonSection">
+                    <button type="submit" className="addTaskButton">Add Task</button>
+                </div>
             </form>
         )
     }

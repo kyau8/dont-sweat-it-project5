@@ -1,10 +1,50 @@
 /* GLOBAL STYLES */
 $primaryFont: "Libre Franklin", sans-serif;
 $secondaryFont: "Muli", sans serif;
-$primaryColor: rgb(127, 246, 255);
+$primaryColor: rgb(96, 186, 238);
 $secondaryColor: darkcyan;
 
 
 body {
     font-size: 62.5%;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer {
+    background: $primaryColor;
+    margin: 20px 0 0 0;
+}
+
+.footerDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.footerText {
+    font-family: $primaryFont;
+    text-transform: lowercase;
+    font-size: 1.0rem;
+    color: white;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.footerText a {
+    color: white;
+    text-decoration: none;
+}
+
+.footerTitle {
+    font-size: 1.0rem;
+    padding: 0;
+    margin: 0;
+}
+
+.footerTitle .fa-tint {
+    font-size: 1.0rem;
 }

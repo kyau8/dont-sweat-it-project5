@@ -114,39 +114,41 @@ class TaskObjects extends React.Component {
     render() {
         console.log('render')
         return (
-            <section className="taskLists">
-                <div className="dailyList list">
-                    <h2>Daily Tasks</h2>
-                    <button className="newListButton" onClick={() => this.refreshList(this.state.dailyUserTasks)}>'It's a <span>new</span> day'</button>
-                    <ul>
-                        {this.state.dailyUserTasks.map((task) => {
-                            return this.renderTask(task)
-                            // return <li key={dailyDo.key} id={dailyDo.key} className={this.getClassName(dailyDo)}>
-                            // <i className={dailyDo.iconType}></i>{dailyDo.task}
-                            //     <TaskCompletion completeTask={this.completeTask} notCompleteTask={this.notCompleteTask} forgottenTask={this.forgottenTask} deleteTask={this.deleteTask} task={dailyDo} />
-                            // </li>
-                        })}
-                    </ul>
-                </div>
-                <div className="weeklyList list">
-                    <h2>Weekly Tasks</h2>
-                    <button className="newListButton" onClick={() => this.refreshList(this.state.weeklyUserTasks)}>'It's a new week'</button>
-                    <ul>
-                        {this.state.weeklyUserTasks.map((task) => {
-                            return this.renderTask(task);
-                        })}
-                    </ul>
-                </div>
-                <div className="monthlyList list">
-                    <h2>Monthly Tasks</h2>
-                    <button className="newListButton" onClick={() => this.refreshList(this.state.monthlyUserTasks)}>'It's a new month'</button>
-                    <ul>
-                        {this.state.monthlyUserTasks.map((task) => {
-                            return this.renderTask(task);
-                        })}
-                    </ul>
-                </div>
-            </section>
+            <div className="wrapper">
+                <section className="taskLists">
+                    <div className="dailyList list">
+                        <h2>Daily Tasks</h2>
+                        <button className="newListButton" onClick={() => this.refreshList(this.state.dailyUserTasks)}>'It's a <span>new</span> day'</button>
+                        <ul>
+                            {this.state.dailyUserTasks.map((task) => {
+                                return this.renderTask(task)
+                                // return <li key={dailyDo.key} id={dailyDo.key} className={this.getClassName(dailyDo)}>
+                                // <i className={dailyDo.iconType}></i>{dailyDo.task}
+                                //     <TaskCompletion completeTask={this.completeTask} notCompleteTask={this.notCompleteTask} forgottenTask={this.forgottenTask} deleteTask={this.deleteTask} task={dailyDo} />
+                                // </li>
+                            })}
+                        </ul>
+                    </div>
+                    <div className="weeklyList list">
+                        <h2>Weekly Tasks</h2>
+                        <button className="newListButton" onClick={() => this.refreshList(this.state.weeklyUserTasks)}>'It's a new week'</button>
+                        <ul>
+                            {this.state.weeklyUserTasks.map((task) => {
+                                return this.renderTask(task);
+                            })}
+                        </ul>
+                    </div>
+                    <div className="monthlyList list">
+                        <h2>Monthly Tasks</h2>
+                        <button className="newListButton" onClick={() => this.refreshList(this.state.monthlyUserTasks)}>'It's a new month'</button>
+                        <ul>
+                            {this.state.monthlyUserTasks.map((task) => {
+                                return this.renderTask(task);
+                            })}
+                        </ul>
+                    </div>
+                </section>
+            </div>
         )
     }
 }

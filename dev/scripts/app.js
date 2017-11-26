@@ -42,11 +42,26 @@ class App extends React.Component {
         return (
             <div>
                 <header>
-                    <h1>Don't Sweat It <i className="fa fa-tint"></i></h1>
-                    <p className="date">{moment().format('MMM D YYYY')}</p>
-                    <AddTask />
+                    <div className="wrapper">
+                        <div className="headerDiv">
+                            <div className="title">
+                                <h1>Don't Sweat It <i className="fa fa-tint"></i></h1>
+                                <h3>Mark items as you complete them ({<i className="fa fa-star"></i>}), don't complete them ({<i className="fa fa-star-o"></i>}), or even if you can't remember ({<i className="fa fa-star-half-full"></i>})!</h3>
+                            </div>
+                            <p className="date">{moment().format('MMM D YYYY')}</p>
+                            <AddTask />
+                        </div>
+                    </div>
                 </header>
                 <TaskObjects />
+            <footer>
+                <div className="wrapper">
+                    <div className="footerDiv">
+                        <p className="footerText">Created by <a href="https://twitter.com/kyau8">@kyau8</a></p>
+                        <h1 className="footerTitle">Don't Sweat It <i className="fa fa-tint"></i></h1>
+                    </div>
+                </div>
+            </footer>
             </div>
         )
     }

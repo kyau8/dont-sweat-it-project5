@@ -35,10 +35,9 @@ h2 {
 }
 
 .list {
-    border: 1px solid lime;
+    border-right: 3px dotted $primaryColor;
     width: 33.3%;
 }
-
 
 .fa {
     font-size: 1.8rem;
@@ -48,6 +47,19 @@ h2 {
     padding: 6px;
     margin: 0 10px;
     // background: grey;
+}
+
+.taskItems {
+    padding: 10px 10px 5px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.taskItems p {
+    margin: 0;
+    font-family: $primaryFont;
 }
 
 ul {
@@ -65,10 +77,14 @@ li {
     font-size: 1.0rem;
     list-style-type: none;
     width: 45%;
-    border: 1px solid red;
-    background: rgb(21, 150, 150);
-    // height: 80px;
+    border: 2px solid rgb(56, 164, 236);
+    border-radius: 5px;
+    background: rgb(56, 164, 236);
     margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 input {
@@ -83,23 +99,28 @@ form .fa {
 }
 
 .taskStatusForm {
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    padding-left: 10px;
+    margin-bottom: 10px;
 }
 
 
 .completedClass {
-    // color: red;
-    background: blue;
+    background: rgb(245, 167, 23);
+    border: 2px solid rgb(245, 167, 23);
 }
 
 .notCompleteClass {
-    color: blue;
+    background: rgb(3, 245, 96);
+    border: 2px solid rgb(3, 245, 96);
 }
 
 .forgottenClass {
-    color: pink;
+    background: rgb(92, 130, 173);
+    border: 2px solid rgb(92, 130, 173);
 }
 
