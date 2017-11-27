@@ -5,8 +5,6 @@ class AddTask extends React.Component {
     constructor() {
         super();
         this.state = {
-            // task:'',
-            // taskCategory:''
             newTask: {
                 display: true,
                 task: '',
@@ -68,9 +66,5 @@ const TaskForm = (props) => {
             </select>
     )
 }
-
-// add displayNone class to button
-// var addClass = document.getElementById('geoButton');
-// addClass.className += 'displayNone';
 
 export default AddTask;

@@ -1,6 +1,4 @@
 import React from 'react';
-// import EditTask from './editTask';
-
 
 // Create a list of task objects - these are the tasks the users can push into their daily, weekly, or monthly arrays
 class TaskObjects extends React.Component {
@@ -35,7 +33,6 @@ class TaskObjects extends React.Component {
             for (let tasks in taskList) {
                 const newObject = {
                     key: tasks,
-                    // display: taskList[tasks].display,
                     task: taskList[tasks].task,
                     taskCategory: taskList[tasks].taskCategory,
                     taskStatus: taskList[tasks].taskStatus,
@@ -122,10 +119,6 @@ class TaskObjects extends React.Component {
                         <ul>
                             {this.state.dailyUserTasks.map((task) => {
                                 return this.renderTask(task)
-                                // return <li key={dailyDo.key} id={dailyDo.key} className={this.getClassName(dailyDo)}>
-                                // <i className={dailyDo.iconType}></i>{dailyDo.task}
-                                //     <TaskCompletion completeTask={this.completeTask} notCompleteTask={this.notCompleteTask} forgottenTask={this.forgottenTask} deleteTask={this.deleteTask} task={dailyDo} />
-                                // </li>
                             })}
                         </ul>
                     </div>
