@@ -39,14 +39,15 @@ h2 {
     width: 33.3%;
 }
 
+.list:last-child {
+    border-right: none;
+}
+
 .fa {
     font-size: 1.8rem;
-    // width: 60px;
-    // border: 2px solid lightslategray;
     border-radius: 10px;
     padding: 6px;
     margin: 0 10px;
-    // background: grey;
 }
 
 .taskItems {
@@ -68,8 +69,9 @@ ul {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: flex-start;
-    flex-wrap:wrap;
+    align-items: stretch;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
 }
 
 li {
@@ -85,6 +87,45 @@ li {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+}
+
+@media (max-width: 1150px) {
+    li {
+        width: 70%;
+    }
+}
+
+@media (max-width:642px) {
+    .taskLists{
+        flex-direction: column;
+    }
+    .list {
+        width: 100%;
+        padding: 10px 0 20px 0;
+        border-right: none;
+        border-bottom: 3px dotted $primaryColor;
+    }
+    .list:last-child {
+        border-bottom: none;
+    }
+    h2 {
+        margin: 15px 0 0 0;
+    }
+    li {
+        width: 28%;
+    }
+}
+
+@media (max-width: 568px) {
+    li {
+        width: 45%;
+    }
+}
+
+@media (max-width: 385px) {
+    li {
+        width: 80%;
+    }
 }
 
 input {

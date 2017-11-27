@@ -15,9 +15,20 @@ h1 {
     text-transform: lowercase;
     letter-spacing: 2px;
     font-size: 2.5rem;
-    padding: 25px 10px 5px 10px;
+    padding: 25px 10px 5px 0;
     margin: 0;
-    // width: 70%;
+}
+
+@media (max-width: 1123px) {
+    header h1{
+        width: 70%;
+    }
+}
+
+@media (max-width: 1040px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
 }
 
 .fa-tint {
@@ -54,6 +65,22 @@ h3 {
     // width: 70%;
 }
 
+.title .fa-star {
+    background: rgb(245, 167, 23);
+    padding: 4px;
+    border-radius: none;
+}
+
+.title .fa-star-o {
+    background: rgb(3, 245, 96);
+    padding: 4px;
+}
+
+.title .fa-star-half-full {
+    background: rgb(92, 130, 173);
+    padding: 4px;
+}
+
 .date {
     font-family: $secondaryFont;
     font-weight: bold;
@@ -65,13 +92,87 @@ h3 {
     text-align: center;
 }
 
+@media (max-width: 968px) {
+    ul {
+        flex-wrap: wrap;
+    }
+    .title {
+        width: 340px;
+        padding-right: 0;
+    }
+}
+
 .addTaskForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 33.3%;
-    padding-right: 25px;
+    // padding-right: 25px;
+}
+
+@media (max-width:1208px) {
+    .addTaskForm {
+        margin-right: 25px;
+    }
+}
+
+@media (max-width: 936px) {
+    .date {
+        margin: 0 30px;
+    }
+    .headerDiv {
+        flex-wrap: wrap;
+    }
+    .addTaskForm {
+        width: 340px;
+        margin: 20px auto;
+    }
+}
+
+@media (max-width:920px) {
+    header h1 {
+        font-size: 2.5rem;
+        width: 100%;
+    }
+    .title {
+        width: 65%;
+    }
+}
+
+@media (max-width:643px) {
+    .title {
+        width: 100%;
+        margin-right: 10px;
+    }
+}
+
+@media (max-width:586px) {
+    .headerDiv {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 350px) {
+    header h1 {
+        width: 70%;
+    }
+    .addTaskForm {
+        width: 300px;
+    }
+    .inputbox {
+        flex-shrink: 1;
+    }
+    select {
+        width: 100px;
+        // font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 329px) {
+    header h1 {
+        width: 80%;
+    }
 }
 
 .fillTaskForm {
@@ -86,39 +187,53 @@ h3 {
     visibility: visible;
     border: none;
     height: 30px;
-    width:61%;
+    // width:61%;
     font-family: $primaryFont;
     font-size: 1.0rem;
     color: $secondaryColor;
     border-radius: 5px;
+    flex-grow: 2;
 }
 
 select {
-    width: 35%;
+    // width: 35%;
     height: 30px;
     font-family: $primaryFont;
     font-size: 1.0rem;
     text-transform: lowercase;
     border: none;
-    // margin: 0 15px;
+    margin: 0 0 0 15px;
     color: $secondaryColor;
     border-radius: 5px;
+    flex-grow: 1;
+}
+
+@media (max-width:1028px) {
+    select {
+        margin-left: 5px;
+    }
 }
 
 .buttonSection {
     display: block;
     width: 100%;
     padding: 10px 0 0 0;
+    flex-grow: 1;
 }
+
 .addTaskButton {
     font-family: $primaryFont;
     font-size: 1.0rem;
     display: block;
-    background: $secondaryColor;
-    border: 1px solid $secondaryColor;
+    background: rgb(20, 140, 184);
+    border: 1px solid rgb(20, 140, 184);
     border-radius: 5px;
     color: white;
     height: 30px;
     width: 100%;
     text-transform: lowercase;
+}
+
+.addTaskButton:hover {
+    background: $secondaryColor;
 }

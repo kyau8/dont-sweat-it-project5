@@ -16,7 +16,6 @@ body {
 
 footer {
     background: $primaryColor;
-    margin: 20px 0 0 0;
 }
 
 .footerDiv {
@@ -39,6 +38,10 @@ footer {
     text-decoration: none;
 }
 
+.footerText a:hover {
+    color: $secondaryColor;
+}
+
 .footerTitle {
     font-size: 1.0rem;
     padding: 0;
@@ -47,4 +50,13 @@ footer {
 
 .footerTitle .fa-tint {
     font-size: 1.0rem;
+}
+
+@media (max-width: 1205px) {
+    .footerTitle {
+        margin-right: 10px;
+    }
+    .footerText {
+        margin-left: 10px;
+    }
 }
