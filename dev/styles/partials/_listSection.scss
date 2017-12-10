@@ -19,13 +19,10 @@ h2 {
     border: none;
     padding: 5px 20px;
     font-style: italic;
+    &:hover {
+        background: $secondaryColor;
+    }
 }
-
-.newListButton:hover {
-    background: $secondaryColor;
-    color: white;
-}
-
 
 .taskLists {
     display: flex;
@@ -47,6 +44,7 @@ h2 {
     border-radius: 10px;
     padding: 6px;
     margin: 0 10px;
+    color: red;
 }
 
 .taskItems {
@@ -60,6 +58,8 @@ h2 {
 .taskItems p {
     margin: 0;
     font-family: $primaryFont;
+    color: black;
+    border: 1px solid black;
 }
 
 ul {
@@ -70,7 +70,7 @@ ul {
     justify-content: space-around;
     align-items: stretch;
     flex-wrap: wrap;
-    padding-bottom: 20px;
+    // padding-bottom: 20px;
 }
 
 li {
@@ -80,7 +80,7 @@ li {
     width: 45%;
     border: 2px solid rgb(56, 164, 236);
     border-radius: 5px;
-    background: rgb(56, 164, 236);
+    // background: white;
     margin: 5px 0;
     display: flex;
     flex-direction: column;

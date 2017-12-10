@@ -1,21 +1,33 @@
-/* GLOBAL STYLES */
+/* VARIABLES */
 $primaryFont: "Libre Franklin", sans-serif;
 $secondaryFont: "Muli", sans serif;
-$primaryColor: rgb(96, 186, 238);
+$primaryColor: rgb(98, 191, 228);
 $secondaryColor: darkcyan;
+$accentColor: rgb(20, 140, 184);
+$white: white;
 
 
+/* GLOBAL STYLES */
 body {
     font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, ul, li {
+    margin: 0;
+    padding: 0;
 }
 
 .wrapper {
     max-width: 1200px;
+    width: 90%;
     margin: 0 auto;
 }
 
 footer {
-    background: $primaryColor;
+    background: #6eccc6; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #6eccc6, #0ed2f7); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #6eccc6, #0ed2f7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .footerDiv {
@@ -36,10 +48,9 @@ footer {
 .footerText a {
     color: white;
     text-decoration: none;
-}
-
-.footerText a:hover {
-    color: $secondaryColor;
+    &:hover {
+        color: $secondaryColor;
+    }
 }
 
 .footerTitle {

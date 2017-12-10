@@ -1,5 +1,8 @@
 header {
-    background: $primaryColor;
+    background: #6eccc6; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #6eccc6, #0ed2f7); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #6eccc6, #0ed2f7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding-bottom: 20px;
 }
 
 .headerDiv {
@@ -9,14 +12,19 @@ header {
     align-items: center;   
 }
 
+h1, .fa-tint {
+    color: $white;
+    font-size: 2.5rem;
+}
+
 h1 {
     font-family: $primaryFont;
-    color: white;
     text-transform: lowercase;
     letter-spacing: 2px;
-    font-size: 2.5rem;
+}
+
+.mainTitle {
     padding: 25px 10px 5px 0;
-    margin: 0;
 }
 
 @media (max-width: 1123px) {
@@ -32,8 +40,6 @@ h1 {
 }
 
 .fa-tint {
-    color: white;
-    font-size: 2.5rem;
     padding: 0;
     margin: 0;
 }
@@ -43,41 +49,42 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 0 20px;
+    // padding: 0 20px;
     width: 33.3%;
 }
 
-.fa-star,
-.fa-star-o,
-.fa-star-half-full {
-    font-size: 1.0rem;
-    padding: 0;
-    margin: 0 3px;
-}
-
 h3 {
-    display: inline;
     padding: 0 0 15px 0;
-    margin: 0;
     font-family: $secondaryFont;
-    color: white;
+    color: $white;
     font-size: 1.0rem;
 }
 
-.title .fa-star {
-    background: rgb(245, 167, 23);
-    padding: 4px;
-    border-radius: none;
-}
-
-.title .fa-star-o {
-    background: rgb(3, 245, 96);
-    padding: 4px;
-}
-
-.title .fa-star-half-full {
-    background: rgb(92, 130, 173);
-    padding: 4px;
+/* LEGEND SECTION STYLES */
+.legendContents {
+    border: 2px solid $white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+        li {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        font-family: $secondaryFont;
+        font-size: 1.2rem;
+        color: $white;
+        font-weight: bold;
+        text-transform: lowercase;
+        width: 25%;
+        border: none;
+        .fa {
+            color: $white;
+        }
+    }
 }
 
 .date {
@@ -91,87 +98,106 @@ h3 {
     text-align: center;
 }
 
-@media (max-width: 968px) {
-    ul {
-        flex-wrap: wrap;
-    }
-    .title {
-        width: 340px;
-        padding-right: 0;
-    }
-}
-
 .addTaskForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 33.3%;
-    // padding-right: 25px;
+    font-family: $primaryFont;
+    font-size: 1.0rem;
 }
 
-@media (max-width:1208px) {
-    .addTaskForm {
-        margin-right: 25px;
-    }
-}
 
-@media (max-width: 936px) {
-    .date {
-        margin: 0 30px;
-    }
-    .headerDiv {
-        flex-wrap: wrap;
-    }
-    .addTaskForm {
-        width: 340px;
-        margin: 20px auto;
-    }
-}
-
-@media (max-width:920px) {
-    header h1 {
-        font-size: 2.5rem;
-        width: 100%;
-    }
-    .title {
-        width: 65%;
-    }
-}
-
-@media (max-width:643px) {
-    .title {
-        width: 100%;
-        margin-right: 10px;
-    }
-}
-
-@media (max-width:586px) {
-    .headerDiv {
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 350px) {
-    header h1 {
-        width: 70%;
-    }
-    .addTaskForm {
-        width: 300px;
-    }
-    .inputbox {
-        flex-shrink: 1;
-    }
-    select {
-        width: 100px;
-    }
-}
-
-@media (max-width: 329px) {
-    header h1 {
+@media (max-width: 940px) {
+    .mainTitle {
         width: 80%;
     }
 }
+
+@media (max-width: 813px) {
+    .mainTitle {
+        width: 100%;
+    }
+}
+
+@media (max-width: 770px) {
+    .headerDiv{
+        flex-wrap: wrap;
+    }
+    .addTaskForm {
+        width: 500px;
+        margin: 15px auto;
+    }
+    .mainTitle {
+        width: 150%;
+    }
+    h3 {
+        width: 150%;
+    }
+}
+
+@media (max-width: 672px) {
+    .mainTitle {
+        width: 160%;
+    }  
+}
+
+@media (max-width: 633px) {
+    .mainTitle {
+        width: 200%;
+    }
+    .legendContents li {
+        width: 50%;
+    }
+}
+
+@media (max-width:540px) {
+    .headerDiv {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .title {
+        width: 100%;
+        padding: 0 10px;
+    }
+    .mainTitle {
+        width: 100%;
+    }
+    h3 {
+        width: 100%;
+    }
+    .addTaskForm {
+        width: 100%;
+    }
+    .date {
+        margin: 5px auto;
+    }
+}
+
+@media (max-width: 362px) {
+    .mainTitle {
+        font-size: 1.8rem;
+    }
+    .legendContents li {
+        font-size: 1.0rem;
+    }
+    // .addTaskForm {
+    //     width: 300px;
+    // }
+    // .inputbox {
+    //     flex-shrink: 1;
+    // }
+    // select {
+    //     width: 100px;
+    // }
+}
+
+// @media (max-width: 329px) {
+//     header h1 {
+//         width: 80%;
+//     }
+// }
 
 .fillTaskForm {
     display: flex;
@@ -181,57 +207,41 @@ h3 {
     width: 100%;
 }
 
+.inputBox, select {
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    color: $secondaryColor;
+}
+
 .inputBox {
     visibility: visible;
-    border: none;
-    height: 30px;
-    // width:61%;
-    font-family: $primaryFont;
-    font-size: 1.0rem;
-    color: $secondaryColor;
-    border-radius: 5px;
+    padding: 0 5px;
     flex-grow: 2;
+    width: 55%;
+    margin: 0 1% 0 0;
 }
 
 select {
-    // width: 35%;
-    height: 30px;
-    font-family: $primaryFont;
-    font-size: 1.0rem;
     text-transform: lowercase;
-    border: none;
-    margin: 0 0 0 15px;
-    color: $secondaryColor;
-    border-radius: 5px;
     flex-grow: 1;
-}
-
-@media (max-width:1028px) {
-    select {
-        margin-left: 5px;
-    }
 }
 
 .buttonSection {
-    display: block;
     width: 100%;
     padding: 10px 0 0 0;
-    flex-grow: 1;
 }
 
 .addTaskButton {
-    font-family: $primaryFont;
-    font-size: 1.0rem;
-    display: block;
-    background: rgb(20, 140, 184);
-    border: 1px solid rgb(20, 140, 184);
+    background: $accentColor;
+    border: 1px solid $accentColor;
     border-radius: 5px;
-    color: white;
+    color: $white;
     height: 30px;
     width: 100%;
     text-transform: lowercase;
+    &:hover {
+        background: $secondaryColor;
+    }
 }
 
-.addTaskButton:hover {
-    background: $secondaryColor;
-}

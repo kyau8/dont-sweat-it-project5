@@ -16,12 +16,12 @@ var config = {
 };
 firebase.initializeApp(config);
 
-
 // PSEUDOCODE
 // Overview: create a 'done it' app to mark down the simple tasks that have been completed, with the goal of allowing users to keep track of what has/has not been done
 // Create an object of tasks. These tasks need to be categorized as daily, weekly, or monthly tasks. Allow user to select which tasks are displayed in each of their fields (select which objects go into that array, and then print those objects into their respective section of the page). This information should be pushed to Firebase as it is filled in
 // Allow users the option to add their own tasks into each section (daily, weekly, monthly)
 // Users can mark tasks as completed, not-completed, or ??? (forgotten) - default is neutral. This information will be saved to Firebase.
+
 
 class App extends React.Component {
     constructor(){
@@ -37,14 +37,20 @@ class App extends React.Component {
                     <div className="wrapper">
                         <div className="headerDiv">
                             <div className="title">
-                                <h1>Don't Sweat It <i className="fa fa-tint"></i></h1>
-                                <h3>You're #adulting just fine. Keep track of your everyday tasks as you complete them {<i className="fa fa-star"></i>}, don't complete them {<i className="fa fa-star-o"></i>}, or even if you can't remember{<i className="fa fa-star-half-full"></i>}!</h3>
+                                <h1 className="mainTitle">Don't Sweat It <i className="fa fa-tint"></i></h1>
+                                <h3>You're #adulting just fine. Use the buttons below to keep track of your tasks.</h3>
                             </div>
                             <p className="date">{moment().format('MMM D YYYY')}</p>
                             <AddTask />
                         </div>
-                    </div>
-                </header>
+                            <ul className="legendContents">
+                                <li><i className="fa fa-smile-o"></i>Completed</li>
+                                <li><i className="fa fa-frown-o"></i>Not Completed</li>
+                                <li><i className="fa fa-meh-o"></i>Can't Remember</li>
+                                <li><i className="fa fa-times-circle-o"></i>Delete Task</li>
+                            </ul>
+                        </div>
+                    </header>
                 <TaskObjects />
             <footer>
                 <div className="wrapper">

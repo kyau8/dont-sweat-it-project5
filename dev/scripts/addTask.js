@@ -38,6 +38,7 @@ class AddTask extends React.Component {
         newTaskData.push(newInfo);
         let updateInputTask = Object.assign({},this.state.newTask);
         updateInputTask.task = ''
+        
         this.setState({
             newTask:updateInputTask
         })
