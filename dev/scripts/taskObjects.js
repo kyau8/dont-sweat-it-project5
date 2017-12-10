@@ -150,19 +150,19 @@ const TaskCompletion = (props) => {
     return (
         <form className="taskStatusForm" action="">
             <div>
-                <label htmlFor={`complete-${props.task.key}`} name='taskStatus'><i className="fa fa-star"></i></label>
+                <label htmlFor={`complete-${props.task.key}`} name='taskStatus'><i className="fa fa-smile-o"></i></label>
                 <input htmlFor='complete' id={`complete-${props.task.key}`} value='complete' type="radio" name='taskStatus' onClick={() => props.completeTask(props.task)} />
             </div>
             <div>
-                <label htmlFor={`notComplete-${props.task.key}`} name='taskStatus'><i className="fa fa-star-o"></i></label>
+                <label htmlFor={`notComplete-${props.task.key}`} name='taskStatus'><i className="fa fa-frown-o"></i></label>
                 <input htmlFor='notComplete' value='notComplete' id={`notComplete-${props.task.key}`} type="radio" name='taskStatus' onClick={() => props.notCompleteTask(props.task)} />
             </div>
             <div>
-                <label htmlFor={`forgot-${props.task.key}`} name='taskStatus'><i className="fa fa-star-half-full"></i></label>
+                <label htmlFor={`forgot-${props.task.key}`} name='taskStatus'><i className="fa fa-meh-o"></i></label>
                 <input htmlFor='forgot' value='forgot' id={`forgot-${props.task.key}`} type="radio" name='taskStatus' onClick={() => props.forgottenTask(props.task)} />
             </div>
             <div>
-                <label htmlFor={`delete-${props.task.key}`} name='taskStatus' className='deleteButton'><i className="fa fa-times-circle-o"></i></label>
+                <label htmlFor={`delete-${props.task.key}`} name='taskStatus' className='deleteButton'><i className="fa fa-trash-o"></i></label>
                 <input htmlFor='delete' id={`delete-${props.task.key}`} value='delete' type="radio" name='taskStatus' className='deleteButton' onClick={() => props.deleteTask(props.task)} />
             </div>
         </form>
