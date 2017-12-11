@@ -100,19 +100,15 @@ li {
     }
 }
 
-@media (max-width:642px) {
+@media (max-width:707px) {
     .taskLists{
         flex-direction: column;
     }
     .list {
         width: 100%;
         padding: 10px 0 20px 0;
-        // border-right: none;
-        // border-bottom: 3px dotted $primaryColor;
+        margin: 10px 0;
     }
-    // .list:last-child {
-    //     border-bottom: none;
-    // }
     h2 {
         margin: 15px 0 0 0;
     }
