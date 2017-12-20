@@ -1,4 +1,5 @@
 import React from 'react';
+import firebase, { auth, provider } from './firebase' 
 
 // Create a list of task objects - these are the tasks the users can push into their daily, weekly, or monthly arrays
 class TaskObjects extends React.Component {
@@ -9,7 +10,8 @@ class TaskObjects extends React.Component {
             dailyUserTasks: [],
             weeklyUserTasks: [],
             monthlyUserTasks: [],
-            taskStatus: ''
+            taskStatus: '',
+            userId: '',
         }
         this.completeTask = this.completeTask.bind(this);
         this.notCompleteTask = this.notCompleteTask.bind(this);
@@ -21,14 +23,14 @@ class TaskObjects extends React.Component {
     }
     // Grab the task data from Firebase, evaluate what their taskCategory is, and update the userTasks state
     componentDidMount() {
-        const dbRef = firebase.database().ref('userTasks');
+        const dbRef = firebase.database().ref(`${this.props.userId}/`);
         dbRef.on('value', (response) => {
             const newUserTasks = [];
             let newDailyTasks = [];
             let newWeeklyTasks = [];
             let newMonthlyTasks = [];
             const taskList = response.val();
-            // Make a new object and push key and the key value pairs into this object
+            // Make a new object and push key and the key value push into this object
             
             for (let tasks in taskList) {
                 const newObject = {
@@ -61,9 +63,10 @@ class TaskObjects extends React.Component {
     updateDB(task, newStatus) {
         const completedTaskKey = task.key;
         // Updated the task status property in that selected object
+        console.log(completedTaskKey);
         task.taskStatus = newStatus;
         // Update that specific object in firebase
-        const dbRefComplete = firebase.database().ref(`userTasks/${completedTaskKey}/`);
+        const dbRefComplete = firebase.database().ref(`${this.props.userId}/${completedTaskKey}`);
         dbRefComplete.update(task);
     }
     getClassName(task) {
@@ -90,7 +93,7 @@ class TaskObjects extends React.Component {
     // Write a method to delete the tasks if the delete button is selected
     deleteTask(task) {
         const deleteItem = task.key;
-        const deleteRef = firebase.database().ref(`userTasks/${deleteItem}`);
+        const deleteRef = firebase.database().ref(`${this.props.userId}/${deleteItem}`);
         deleteRef.remove();
     }
     // write a method to restore the task status to default when you click the button

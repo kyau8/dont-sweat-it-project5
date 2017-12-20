@@ -1,4 +1,5 @@
 import React from 'react';
+import firebase, { auth, provider } from './firebase';
 
 // User adds a task using the form. Take the task, update the object, and push it to Firebase. Make sure the updates are printed to the respective categories on the main page
 class AddTask extends React.Component {
@@ -33,7 +34,7 @@ class AddTask extends React.Component {
     }
     handleSubmit(e){
         e.preventDefault();
-        const newTaskData = firebase.database().ref('userTasks');
+        const newTaskData = firebase.database().ref(`${this.props.userId}/`);
         const newInfo = this.state.newTask;
         newTaskData.push(newInfo);
         let updateInputTask = Object.assign({},this.state.newTask);

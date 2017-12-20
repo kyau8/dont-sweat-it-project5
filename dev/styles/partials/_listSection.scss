@@ -123,6 +123,13 @@ li {
     }
 }
 
+// remove css transitions for phone
+@media (max-width: 412px) {
+    .list {
+        transform: none;
+    }
+}
+
 @media (max-width: 385px) {
     li {
         width: 80%;
