@@ -56,14 +56,12 @@ class TaskObjects extends React.Component {
                 weeklyUserTasks: newWeeklyTasks,
                 monthlyUserTasks: newMonthlyTasks
             });
-            console.log(newDailyTasks);
         });
     }
     // Write a method to change the taskStatus to complete if the complete button is selected
     updateDB(task, newStatus) {
         const completedTaskKey = task.key;
         // Updated the task status property in that selected object
-        console.log(completedTaskKey);
         task.taskStatus = newStatus;
         // Update that specific object in firebase
         const dbRefComplete = firebase.database().ref(`${this.props.userId}/${completedTaskKey}`);
@@ -112,7 +110,6 @@ class TaskObjects extends React.Component {
     }
     // Print the tasks onto the page
     render() {
-        console.log('render')
         return (
             <div className="wrapper">
                 <section className="taskLists">
