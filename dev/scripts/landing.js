@@ -39,17 +39,19 @@ class Landing extends React.Component {
                 {this.state.user === false ?
                     <Login />
                     :
-                    <div>
+                    <div className="footerParent">
                     <header>
                         <div className="wrapper">
                             <div className="headerDiv">
                                 <div className="title">
                                     <h1 className="mainTitle">Don't Sweat It <i className="fa fa-tint"></i></h1>
-                                    <h3>You're #adulting just fine. Use the buttons below to keep track of your tasks.</h3>
+                                    <h3>You're #adulting just fine. Use the buttons below to colour code and keep track of your tasks.</h3>
                                 </div>
-                                <p className="date">{moment().format('MMM D YYYY')}</p>
+                                <div className="headerDate">
+                                    <p className="date">{moment().format('MMM D YYYY')}</p>
+                                    <button className="log" onClick={this.logout}>Log Out</button>
+                                </div>
                                 <AddTask userId={this.state.userId} />
-                                <button onClick={this.logout}>Log Out</button>
                             </div>
                             <ul className="legendContents">
                                 <li><i className="fa fa-smile-o"></i>Completed</li>

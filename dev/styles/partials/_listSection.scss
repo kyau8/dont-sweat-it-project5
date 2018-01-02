@@ -108,6 +108,9 @@ li {
         width: 100%;
         padding: 10px 0 20px 0;
         margin: 10px 0;
+        &:hover {
+            transform: none;
+        }
     }
     h2 {
         margin: 15px 0 0 0;
@@ -116,6 +119,18 @@ li {
         width: 28%;
     }
 }
+
+@media (max-width:707px) {
+    .taskStatusForm {
+        .fa {
+            &:hover {
+                transform: none;
+            }
+        }
+    }
+}
+
+
 
 @media (max-width: 568px) {
     li {
@@ -169,7 +184,7 @@ form .fa {
 }
 
 .forgottenClass {
-    background: rgba(75, 211, 204, 0.808);
-    border: 2px solid rgba(40, 158, 150, 0.808);
+    background: rgba(75, 134, 211, 0.808);
+    border: 2px solid rgba(41, 116, 209, 0.808);
 }
 
