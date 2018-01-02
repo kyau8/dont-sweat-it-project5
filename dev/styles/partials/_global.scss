@@ -94,3 +94,34 @@ button {
         background: $accentColor;
     }
 }
+
+/* LANDING PAGE STYLES */
+.landing {
+    background: #6eccc6; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #6eccc6, #0ed2f7); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #6eccc6, #0ed2f7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.loginPage {
+    // padding: 30px 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginPage h1 {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.loginPage h3 {
+    width: 66%;
+    text-align: center;
+}
+.loginPage .log {
+    padding: 0 3rem;
+}
+
+

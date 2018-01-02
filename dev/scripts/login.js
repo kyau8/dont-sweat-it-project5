@@ -6,7 +6,6 @@ class Login extends React.Component {
         super();
         this.state = {
             user: false,
-            // userId: '',
         }
         this.login = this.login.bind(this);
     }
@@ -17,13 +16,7 @@ class Login extends React.Component {
                 console.log(userId);
                 this.setState({
                     user: true,
-                    // userId
                 });
-                // const dbRef = firebase.database().ref(`${userId}/`);
-                // const id = this.state.userId;
-                // dbRef.update({
-                //     name: 'buttface',
-                // });
             });
     }
     componentDidMount() {
@@ -37,8 +30,16 @@ class Login extends React.Component {
     }
     render() {
         return (
-            <div className="login">
-                <button onClick={this.login}>Log In</button>
+            <div className="landing">
+                <div className="wrapper">
+                    <div className="loginPage">
+                        <h1 className="mainTitle">Don't Sweat It <i className="fa fa-tint"></i></h1>
+                        <h3>Forget whether or not you've locked the front door today? Gone to the grocery store this week? Visited the gym this month? We known #adulting can be tough. 
+                        </h3>
+                        <h3>Keep track of all the daily, weekly, and monthly tasks on your plate. Mark your tasks as completed, not completed, or even if you miss a step and forget! Don't sweat it - remember, you're doing your best.</h3>
+                        <button className="log" onClick={this.login}>Log In</button>
+                    </div>
+                </div>
             </div>
         )
     }
