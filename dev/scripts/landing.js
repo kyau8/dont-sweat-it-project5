@@ -28,7 +28,7 @@ class Landing extends React.Component {
                 const id = firebase.auth().currentUser.uid;
                 this.setState({ 
                     user: true, 
-                    userId: id
+                    userId: id,
                 });
             }
         });
@@ -40,28 +40,30 @@ class Landing extends React.Component {
                     <Login />
                     :
                     <div className="footerParent">
-                    <header>
-                        <div className="wrapper">
-                            <div className="headerDiv">
-                                <div className="title">
-                                    <h1 className="mainTitle">Don't Sweat It <i className="fa fa-tint"></i></h1>
-                                    <h3>You're #adulting just fine. Use the buttons below to colour code and keep track of your tasks.</h3>
+                    <div>
+                        <header>
+                            <div className="wrapper">
+                                <div className="headerDiv">
+                                    <div className="title">
+                                        <h1 className="mainTitle">Don't Sweat It <i className="fa fa-tint"></i></h1>
+                                        <h3>You're #adulting just fine. Use the buttons below to colour code and keep track of your tasks.</h3>
+                                    </div>
+                                    <div className="headerDate">
+                                        <p className="date">{moment().format('MMM D YYYY')}</p>
+                                        <button className="log" onClick={this.logout}>Log Out</button>
+                                    </div>
+                                    <AddTask userId={this.state.userId} />
                                 </div>
-                                <div className="headerDate">
-                                    <p className="date">{moment().format('MMM D YYYY')}</p>
-                                    <button className="log" onClick={this.logout}>Log Out</button>
-                                </div>
-                                <AddTask userId={this.state.userId} />
+                                <ul className="legendContents">
+                                    <li><i className="fa fa-smile-o"></i>Completed</li>
+                                    <li><i className="fa fa-frown-o"></i>Not Completed</li>
+                                    <li><i className="fa fa-meh-o"></i>Can't Remember</li>
+                                    <li><i className="fa fa-trash-o"></i>Delete Task</li>
+                                </ul>
                             </div>
-                            <ul className="legendContents">
-                                <li><i className="fa fa-smile-o"></i>Completed</li>
-                                <li><i className="fa fa-frown-o"></i>Not Completed</li>
-                                <li><i className="fa fa-meh-o"></i>Can't Remember</li>
-                                <li><i className="fa fa-trash-o"></i>Delete Task</li>
-                            </ul>
-                        </div>
-                    </header>
-                    <TaskObjects userId={this.state.userId} />
+                        </header>
+                            <TaskObjects userId={this.state.userId} />
+                    </div>
                     <footer>
                         <div className="wrapper">
                             <div className="footerDiv">

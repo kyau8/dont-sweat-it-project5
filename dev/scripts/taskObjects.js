@@ -21,42 +21,42 @@ class TaskObjects extends React.Component {
         this.refreshList = this.refreshList.bind(this);
         this.renderTask = this.renderTask.bind(this);
     }
-    // Grab the task data from Firebase, evaluate what their taskCategory is, and update the userTasks state
+    // Grab the task data from Firebase, evaluate what their taskCategory is, and update the state
     componentDidMount() {
-        const dbRef = firebase.database().ref(`${this.props.userId}/`);
-        dbRef.on('value', (response) => {
-            const newUserTasks = [];
-            let newDailyTasks = [];
-            let newWeeklyTasks = [];
-            let newMonthlyTasks = [];
-            const taskList = response.val();
-            // Make a new object and push key and the key value push into this object
-            
-            for (let tasks in taskList) {
-                const newObject = {
-                    key: tasks,
-                    task: taskList[tasks].task,
-                    taskCategory: taskList[tasks].taskCategory,
-                    taskStatus: taskList[tasks].taskStatus,
-                    iconType: taskList[tasks].iconType
-                };
-                newUserTasks.push(newObject);
-                newDailyTasks = newUserTasks.filter(function(dailyTask) {
-                    return dailyTask.taskCategory === 'daily';
+            const dbRef = firebase.database().ref(`${this.props.userId}/`);
+            dbRef.on('value', (response) => {
+                const newUserTasks = [];
+                let newDailyTasks = [];
+                let newWeeklyTasks = [];
+                let newMonthlyTasks = [];
+                const taskList = response.val();
+                // Make a new object and push key and the key value push into this object
+                
+                for (let tasks in taskList) {
+                    const newObject = {
+                        key: tasks,
+                        task: taskList[tasks].task,
+                        taskCategory: taskList[tasks].taskCategory,
+                        taskStatus: taskList[tasks].taskStatus,
+                        iconType: taskList[tasks].iconType
+                    };
+                    newUserTasks.push(newObject);
+                    newDailyTasks = newUserTasks.filter(function(dailyTask) {
+                        return dailyTask.taskCategory === 'daily';
+                    });
+                    newWeeklyTasks = newUserTasks.filter(function(weeklyTask) {
+                        return weeklyTask.taskCategory === 'weekly';
+                    });
+                    newMonthlyTasks = newUserTasks.filter(function(monthlyTask) {
+                        return monthlyTask.taskCategory === 'monthly';
+                    });
+                }
+                this.setState({
+                    dailyUserTasks: newDailyTasks,
+                    weeklyUserTasks: newWeeklyTasks,
+                    monthlyUserTasks: newMonthlyTasks
                 });
-                newWeeklyTasks = newUserTasks.filter(function(weeklyTask) {
-                    return weeklyTask.taskCategory === 'weekly';
-                });
-                newMonthlyTasks = newUserTasks.filter(function(monthlyTask) {
-                    return monthlyTask.taskCategory === 'monthly';
-                });
-            }
-            this.setState({
-                dailyUserTasks: newDailyTasks,
-                weeklyUserTasks: newWeeklyTasks,
-                monthlyUserTasks: newMonthlyTasks
             });
-        });
     }
     // Write a method to change the taskStatus to complete if the complete button is selected
     updateDB(task, newStatus) {

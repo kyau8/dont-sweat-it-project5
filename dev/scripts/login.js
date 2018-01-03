@@ -13,6 +13,7 @@ class Login extends React.Component {
         auth.signInWithPopup(provider)
             .then((result) => {
                 const userId = result.user.uid;
+                // const firstLogin = result.additionalUserInfo.isNewUser;
                 this.setState({
                     user: true,
                 });

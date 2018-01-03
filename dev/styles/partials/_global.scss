@@ -124,4 +124,11 @@ button {
     padding: 0 3rem;
 }
 
+.footerParent {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+}
+
 
