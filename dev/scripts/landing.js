@@ -13,12 +13,23 @@ class Landing extends React.Component {
             userId: '',
         }
         this.logout = this.logout.bind(this);
+        this.login = this.login.bind(this);
     }
     logout() {
         auth.signOut()
             .then(() => {
                 this.setState({
                     user: false
+                });
+            });
+    }
+    login() {
+        auth.signInWithPopup(provider)
+            .then((result) => {
+                const userId = result.user.uid;
+                // const firstLogin = result.additionalUserInfo.isNewUser;
+                this.setState({
+                    user: true,
                 });
             });
     }
@@ -37,7 +48,18 @@ class Landing extends React.Component {
         return (
             <div>
                 {this.state.user === false ?
-                    <Login />
+                    <div className="landing">
+                        <div className="wrapper">
+                            <div className="loginPage">
+                                <h1 className="mainTitle">Don't Sweat It <i className="fa fa-tint"></i></h1>
+                                <h3>Forget whether or not you've locked the front door today? Gone to the grocery store this week? Visited the gym this month? We know #adulting can be tough.
+                        </h3>
+                                <h3>Keep track of all the daily, weekly, and monthly tasks on your plate. Mark your tasks as completed, not completed, or even if you miss a step and forget! Don't sweat it - remember, you're doing your best.</h3>
+                                <button className="log" onClick={this.login}>Log In</button>
+                                <button>Demo Mode</button>
+                            </div>
+                        </div>
+                    </div>
                     :
                     <div className="footerParent">
                     <div>
