@@ -13,7 +13,6 @@ class Login extends React.Component {
         auth.signInWithPopup(provider)
             .then((result) => {
                 const userId = result.user.uid;
-                // const firstLogin = result.additionalUserInfo.isNewUser;
                 this.setState({
                     user: true,
                 });
@@ -38,7 +37,6 @@ class Login extends React.Component {
                         </h3>
                         <h3>Keep track of all the daily, weekly, and monthly tasks on your plate. Mark your tasks as completed, not completed, or even if you miss a step and forget! Don't sweat it - remember, you're doing your best.</h3>
                         <button className="log" onClick={this.login}>Log In</button>
-                        <button>Demo Mode</button>
                     </div>
                 </div>
             </div>
